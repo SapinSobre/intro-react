@@ -1,27 +1,22 @@
 import '../sass/List.scss'
+import Todo from './Todo.js'
+//import React, {v4 as uuidv4} from 'react-uuid'
 
-const List = () => {
-    return(
-        <section class="listCheckbox">
-            <h2 className="listCheckbox_title">Todos</h2>
-            <div className="checkbox">
-                <div className="checkbox_item">
-                    <label className="checkbox_label">
-                        <input className="checkbox_input" type="checkbox"/>To learn the state in React
-                    </label>
-                </div>
-                <div className="checkbox_item">
-                    <label className="checkbox_label">
-                        <input className="checkbox_input" type="checkbox"/>To cook a cake
-                    </label>
-                </div>
-                <div className="checkbox_item">
-                    <label className="checkbox_label">
-                        <input className="checkbox_input" type="checkbox"/>To call Sofia
-                    </label>
-                </div>
-            </div>
-        </section>
+const List = ({todoValues, setTodoValues}) => {    
+    
+    return(       
+        <div>
+            <h2 className="listCheckbox_title">Todos</h2>  
+            <ul className="listCheckbox">                
+                {
+                    todoValues.map((tod) => (                 
+                        <div className="listCheckbox_item" key={todoValues.indexOf(tod)}>
+                            <Todo tod={tod} />
+                        </div>
+                    ))
+                }             
+            </ul>  
+        </div>  
     )
 }
 export default List
