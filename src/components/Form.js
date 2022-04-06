@@ -15,7 +15,7 @@ const Form = ({todoValues, setTodoValues}) => {
 	}
     return(
         <form className="addTodoForm">
-            <input onBlur={(e) => updateTodoValues(e.target.value, e)} className="addTodoForm_input" type="text"/>
+            <input onBlur={(e) => updateTodoValues(e.target.value, e)} className="addTodoForm_input" type="text" placeholder="Please enter a new todo"/>
             <button onClick={(e) => addNewTodo(e)} className="capitalize addTodoForm_button">add todo</button>
         </form>
     )
