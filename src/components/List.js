@@ -1,6 +1,6 @@
 import '../sass/List.scss'
 import Todo from './Todo.js'
-//import React, {v4 as uuidv4} from 'react-uuid'
+import React, {v4 as uuidv4} from 'uuid'
 
 const List = ({todoValues, setTodoValues}) => {    
     
@@ -10,12 +10,13 @@ const List = ({todoValues, setTodoValues}) => {
             <ul className="listCheckbox">                
                 {
                     todoValues.map((tod) => (                 
-                        <div className="listCheckbox_item" key={todoValues.indexOf(tod)}>
-                            <Todo tod={tod} />
+                        <div className="listCheckbox_item" key={`${tod.id}-${uuidv4}`}>
+                            <Todo todoValues={todoValues} setTodoValues={setTodoValues} tod = {tod}/>
                         </div>
                     ))
                 }             
             </ul>  
+            
         </div>  
     )
 }

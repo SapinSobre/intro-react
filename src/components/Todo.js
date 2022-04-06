@@ -1,14 +1,28 @@
 import '../sass/Todo.scss'
-import React, {useState} from 'react'
+import {useEffect, useRef} from 'react'
 
-const Todo = ({tod}) => {
-    const [checkValue, setCheckValue] = useState(false)
-    checkValue && alert(`C'est vrai! ${tod} est en cours en fait!!`)
+const Todo = ({todoValues, setTodoValues, tod}) => {
+    const inputDone = useRef()    
+    
+    const handleCheck = () => {
+        const newTab = [...todoValues]
+       tod.completed = !tod.completed
+       if(tod.completed === true){
+           newTab.splice(tod.id)
+           setTodoValues(newTab)
+       }
+       if(todoValues.length == 1){
+           newTab.pop()
+           setTodoValues(newTab)
+       }
+    }
+   
+   
     return(                       
         <li className="checkbox_item"> 
             <label>                    
-                <input onChange={(e) => setCheckValue(!checkValue)} className="checkbox_input" type="checkbox"/>
-                {tod} 
+                <input value={tod.completed} onClick={() => handleCheck()} ref={inputDone} className="checkbox_input" type="checkbox"/>
+                {tod.name} 
             </label>                        
         </li>         
     )

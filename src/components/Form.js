@@ -1,23 +1,31 @@
 import '../sass/Form.scss'
-import {useState} from 'react'
+import {useRef} from 'react'
 
 const Form = ({todoValues, setTodoValues}) => { 
-	const [val, setVal] = useState("")
-	const updateTodoValues = (inputValue, e) => {
-		e.preventDefault()
-		setVal(inputValue)			
+	const inputRef = useRef();
+
+	function clickHandler(value) {
+		const inputElementValue = inputRef.current.value;
+		const newTodoObject = {
+			id: todoValues.length,
+			name: inputElementValue,
+			completed: false
+		}
+		
+		const tabCopy = [...todoValues]
+		tabCopy.push(newTodoObject)
+		setTodoValues(tabCopy)
+	//	const newTab = [...todoValues]
+	//	newTab.push(newTodoObject)
+	//	setTodoValues(newTab)
 	}
-	const addNewTodo = (e) => {
-		e.preventDefault()
-		let newTodoValues = [...todoValues]
-		newTodoValues.push(val)
-		setTodoValues(newTodoValues)
-	}
-    return(
-        <form className="addTodoForm">
-            <input onBlur={(e) => updateTodoValues(e.target.value, e)} className="addTodoForm_input" type="text" placeholder="Please enter a new todo"/>
-            <button onClick={(e) => addNewTodo(e)} className="capitalize addTodoForm_button">add todo</button>
-        </form>
-    )
+  
+	return (
+	  <div className="addTodoForm">
+		<input className="addTodoForm_input" ref={inputRef} type="text" placeholder="Write a new todo" />
+		<br />
+		<button className="addTodoForm_button" onClick={(e) => clickHandler(e.target.value)}>Add todo</button>
+	  </div>
+	);
 }
 export default Form
