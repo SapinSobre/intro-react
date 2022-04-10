@@ -1,0 +1,22 @@
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    .listBox{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 10vh;
+        .listCheckbox{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 30vw;
+            .listCheckbox_title{
+            }
+            .listCheckbox_emptyButton{
+                margin-bottom: 2vw;
+            }
+            .listCheckbox{            
+            }    
+        }
+    }    
+}

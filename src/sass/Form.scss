@@ -1,0 +1,25 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    border-bottom: 1px lightgrey solid;
+    margin-top: 2vh;
+    .form_input{
+        width: 25vw;
+        padding-left: 2vw;
+        border-radius: 0.5vw 0.5vw;
+        height: 7vh;
+        background-color: hsl(210, 29%, 97%);
+        border: 1px solid lightgrey;
+    }
+    .form_button{
+        background-color: hsl(212, 100%, 48%);
+        border: none;
+        border-radius: 0.5vw 0.5vw;
+        color: white;
+        padding:1vw;
+        width: 12vw;
+        margin-bottom: 2vw;
+        font-size: 1.3em;
+    }
+}

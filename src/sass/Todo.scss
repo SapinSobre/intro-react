@@ -1,0 +1,21 @@
+.listCheckbox_item{
+    margin-bottom: 1vh;
+    width: 100%;
+    .previousIcon{
+        margin-right: 1vw;
+        width: 4%;
+    }   
+    .nextIcon{
+        margin-right: 1vw;
+        width: 4%;
+    }   
+    .editIcon{
+        padding-left: 2vw;
+        width: 4%;
+    }   
+    .deleteIcon{
+        padding-left: 2vw;
+        width: 4%;
+        padding-right: 0;
+    } 
+}
